@@ -28,7 +28,7 @@ Unlike local tools (e.g., Zotero, Mendeley), this system will be accessible via 
 	Browser extension to directly save references while browsing.
 	DOI/ArXiv/Google Scholar integration for quick reference fetching.
 
-## Techn Stack:
+## Tech Stack:
 
 ### Frontend:
   React.js / Next.js for a fast, interactive web UI.
