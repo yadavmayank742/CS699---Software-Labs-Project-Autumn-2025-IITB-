@@ -1,56 +1,72 @@
-# Description 
-The proposed system is a web-based bibliographic reference manager that allows researchers, students, and academicians to store, manage, and organize research papers and references in a centralized manner. 
+# Description  
+This project is a **web-based national data visualization platform** that retrieves datasets from **data.gov.in**, preprocesses them using Python, and presents the results through an interactive browser interface.  
 
-Unlike local tools (e.g., Zotero, Mendeley), this system will be accessible via a browser, ensuring collaboration, accessibility, and ease of use across devices.
+The system enables users—researchers, students, policymakers, and data enthusiasts—to filter, explore, and visualize government datasets using **bar charts, pie charts**, and other visual formats. The goal is to make large open-data sources more accessible, interpretable, and user-friendly.
 
-
-## Modules:
-1. Centralized Reference Database
-	Maintain a structured database of research papers (title, authors, publication year, venue, DOI, abstract, PDF, tags, etc.).
-	Support for importing references in common formats (.bib, .ris, .endnote).
-	Duplicate detection and metadata auto-completion using DOI/ISBN lookups.
-
-2. User Management & Collaboration
-	Secure authentication (OAuth2 / SSO).
-	Role-based access (individual accounts, group libraries, shared collections).
-	Ability to annotate, comment, and tag references collaboratively.
-
-3. Search & Organization
-	Full-text search across metadata and uploaded PDFs.
-	Filters by author, year, tags, or keywords.
-	Smart collections that auto-update based on query conditions.
-
-4. Citation Generation
-	Export citations in multiple styles (APA, IEEE, ACM, Chicago, etc.).
-	Integration with LaTeX (BibTeX export)
-
-5. Web Integration
-	Browser extension to directly save references while browsing.
-	DOI/ArXiv/Google Scholar integration for quick reference fetching.
-
-## Tech Stack:
-
-### Frontend:
-  React.js / Next.js for a fast, interactive web UI.
-  TailwindCSS / Bootstrap for responsive design.
-
-### Backend (API):
-  Python (Django REST Framework) for handling reference management, authentication, and citation generation.
-  REST/GraphQL API for extensibility.
-
-### Database:
-  PostgreSQL (primary metadata + user accounts).
-  Elasticsearch for full-text search in titles/abstracts/PDFs.
-  Object Storage for storing uploaded PDFs.
-
-### Citation & Parsing Libraries:
-  BibTeX parsing via bibtexparser (Python).
-  Citation Style Language (CSL) integration for multiple citation formats.
-
-### Authentication & Security:
-  OAuth2 / JWT for secure login.
-
-  
 ---
-# Possible Extension:
-Integration with university SSO for institutional use.
+
+## Features / Modules
+
+### 1. Data Acquisition & Processing
+- Fetches datasets from **data.gov.in APIs** using Python `requests`.
+- Multi-threaded downloading system for efficiency (over **400 datasets fetched**).
+- Supports ingestion of JSON/CSV datasets.
+- Preprocessing and filtering performed using **Pandas** and other Python libraries.
+- Data cleaning, transformation, merging, and aggregation capabilities.
+- Local storage and organization of downloaded datasets for quick reuse.
+
+---
+
+### 2. Visualization Engine
+- Uses **Chart.js** for rendering dynamic, interactive visualizations.
+- Supports bar charts, pie charts, line charts, and custom visual formats.
+- Automatically updates charts based on user selections or filters.
+- Provides options to visualize dataset summaries and insights.
+
+---
+
+### 3. Web Application Interface
+- Built using **Flask** as the backend web framework.
+- Frontend developed using **HTML, CSS, and JavaScript**.
+- Simple, clean, and responsive UI for browsing datasets and viewing charts.
+- Interactive filters (year, region, category, metrics, etc.).
+- Displays tables, charts, and metadata in a unified dashboard.
+
+---
+
+### 4. Backend API & Services
+- Flask REST endpoints serve:
+  - Processed datasets
+  - Chart-ready JSON data
+  - Dataset metadata and statistics
+- Preprocessing pipeline integrates Pandas + multithreaded data fetching.
+- Modular architecture for adding new datasets in the future.
+
+---
+
+## Tech Stack
+
+### Backend
+- **Flask (Python)** for the web application.
+- **Pandas, NumPy** for data transformation.
+- **Requests (multithreaded)** for API interaction with data.gov.in.
+
+### Frontend
+- **HTML, CSS, JavaScript**
+- **Chart.js** for visualizations.
+
+### Storage
+- Local file storage for dataset files (~400 files downloaded).
+- Optional CSV/JSON transformations for quick reads.
+
+---
+
+## Possible Future Enhancements
+- Machine learning models for trend prediction on national datasets.
+- Dashboard customization for end users.
+- Scheduled background jobs for automatic dataset refresh.
+- Integration with government/academic portals as embeddable widgets.
+- Authentication for user based views
+
+---
+
